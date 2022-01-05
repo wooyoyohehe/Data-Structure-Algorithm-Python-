@@ -9,4 +9,11 @@ list_n = [0] * n
 s = bin(5)
 s == "0b101"
 
-3. 
+3. from uppercase to lowercase
+
+s = "ABC"
+s.lower()
+
+4. from binary to decimal
+
+d = int('11111111', 2)
