@@ -13,11 +13,6 @@ class Solution(object):
 
         up = 0
         down = m-1
-        if n == 1:
-            for i in range(m):
-                if matrix[i][0] == target:
-                    return True
-            return False
         if m == 1:
             row = 0
         else:
@@ -45,3 +40,4 @@ class Solution(object):
             elif matrix[row][mid] > target:
                 right = mid - 1
         return False
+            
