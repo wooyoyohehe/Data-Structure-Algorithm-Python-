@@ -7,13 +7,9 @@ class Solution(object):
         """
         if target < matrix[0][0] or target > matrix[-1][-1]:
             return False
-
-        m = len(matrix)
-        n = len(matrix[0])
-
         up = 0
-        down = m-1
-        if m == 1:
+        down = len(matrix)-1
+        if len(matrix) == 1:
             row = 0
         else:
             while up <= down:
@@ -30,7 +26,7 @@ class Solution(object):
             row = mid
         mid = 0
         left = 0 
-        right = n-1
+        right = len(matrix[0])-1
         while left <= right:
             mid = (left+right) // 2
             if matrix[row][mid] == target:
@@ -40,4 +36,3 @@ class Solution(object):
             elif matrix[row][mid] > target:
                 right = mid - 1
         return False
-            
