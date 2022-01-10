@@ -16,8 +16,12 @@ s.lower()
 
 4. from binary to decimal
 
-d = int('11111111', 2)
+    d = int('11111111', 2)
 
 5. create a m*n empty 2D list
 
-x = [[None for _ in range(n)] for _ in range(m)]
+    x = [[None for _ in range(n)] for _ in range(m)]
+
+6. infinite in python
+
+    a = float('inf')
