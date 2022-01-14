@@ -1,20 +1,23 @@
-nums = [1,2,1,1,1]
-step = 0
-cur = 0
-if nums[0] >= len(nums)-1:
-    print(1)
-    exit(0)
-while 1:
-    max_jump = -1
-    max_index = -1
-    for i in range(cur+1, cur+nums[cur]+1):
-        if nums[i] >= max_jump:
-            max_index = i
-            max_jump = nums[i]
-    print(cur)
-    cur = max_index
-    step += 1
-    if cur + nums[cur] >= len(nums)-1:
+class Solution(object):
+    def jump(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        if len(nums) == 1:
+            return 0
+        if nums[0] >= len(nums)-1:
+            return 1
+        cur_index = 0
+        step = 0
+        reach = -1
+        next_index = -1
+        while reach < len(nums)-1:
+            for i in range(cur_index+1, cur_index+nums[cur_index]+1):
+                if nums[i] + i > reach:
+                    reach = nums[i] + i
+                    next_index = i
+            step += 1
+            cur_index = next_index
         step += 1
-        print(step)
-        exit(0)
+        return step
