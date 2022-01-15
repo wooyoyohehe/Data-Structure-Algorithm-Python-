@@ -25,3 +25,10 @@ s.lower()
 6. infinite in python
 
     a = float('inf')
+
+7. 
+
+        preorder traverse: root -> left -> right
+        inorder traverse: left -> root -> right
+        postorder traverse: left -> right -> root
+
