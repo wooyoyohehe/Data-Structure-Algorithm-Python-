@@ -44,3 +44,6 @@
                 做选择
                 backtrack(路径, 选择列表)
                 撤销选择
+
+9. find the index of an item in the list
+        ["foo", "bar", "baz"].index("bar")
