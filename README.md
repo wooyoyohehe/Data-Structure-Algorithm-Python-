@@ -47,3 +47,14 @@
 
 9. find the index of an item in the list
         ["foo", "bar", "baz"].index("bar")
+
+10. reverse a singly linked list
+        <!-- this step is really important or you will get only last two nodes -->
+        prev = None 
+        cur = head
+        while cur:
+                next = cur.next
+                cur.next = prev
+                prev = cur
+                cur = next
+        return prev
