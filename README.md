@@ -61,3 +61,8 @@
 
 11. delete a node in the linked list
         prev.next.next = prev.next
+
+12. convertion between letter and ascii
+        a = 'a'
+        ascii_of_a = ord(a)
+        letter_a = chr(97)
