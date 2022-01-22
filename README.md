@@ -66,3 +66,6 @@
         a = 'a'
         ascii_of_a = ord(a)
         letter_a = chr(97)
+
+13. convert a word to a list of chars
+        list(s)
