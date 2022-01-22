@@ -58,3 +58,6 @@
                 prev = cur
                 cur = next
         return prev
+
+11. delete a node in the linked list
+        prev.next.next = prev.next
