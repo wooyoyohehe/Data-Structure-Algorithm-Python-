@@ -1,10 +1,18 @@
-def maxProduct(nums):
-    """
-    :type nums: List[int]
-    :rtype: int
-    """
-    dp = [[0 for _ in range(2)] for _ in range(len(nums))]
-    dp[0][1] = 10
-    print(dp)
-
-print(maxProduct([-2,3,-4,5,-6]))
+class Solution(object):
+    def maxProduct(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        left = right = 1
+        left_max = right_max = nums[0]
+        for i in range(len(nums)):
+            left *= nums[i]
+            right *= nums[-i-1]
+            left_max = max(left, left_max)
+            right_max = max(right, right_max)
+            if nums[i] == 0:
+                left = 1
+            if nums[-i-1] == 0:
+                right = 1
+        return max(left_max,right_max)
