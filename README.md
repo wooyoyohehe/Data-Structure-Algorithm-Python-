@@ -69,3 +69,5 @@
 
 13. convert a word to a list of chars
         list(s)
+
+14. Bitwise
