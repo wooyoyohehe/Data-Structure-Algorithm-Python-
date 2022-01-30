@@ -22,14 +22,14 @@ class Solution(object):
             nums.append(head.val)
             head = head.next
         root = TreeNode(0)
-        def helper(node, left, right, nums):
+        def helper(node, left, right):
             mid = left+ (right-left)//2
             node.val = nums[mid]
             if left <= mid-1:
                 node.left = TreeNode(0)
-                helper(node.left, left, mid-1, nums)
+                helper(node.left, left, mid-1)
             if mid+1<=right:
                 node.right = TreeNode(0)
-                helper(node.right, mid+1, right, nums)
-        helper(root, 0, len(nums)-1, nums)
+                helper(node.right, mid+1, right)
+        helper(root, 0, len(nums)-1)
         return root
