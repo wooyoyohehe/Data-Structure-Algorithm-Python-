@@ -70,4 +70,10 @@
 13. convert a word to a list of chars
         list(s)
 
-14. Bitwise
+14. PriorityQueue
+        from queue import PriorityQueue
+        q = PriorityQueue()
+        q.put([priority, "sth"])
+        q.get()
+        q.empty()
+        q.qsize()
