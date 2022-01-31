@@ -77,3 +77,11 @@
         q.get()
         q.empty()
         q.qsize()
+
+15. heapq
+        q = []
+        heapq.heappush(q, (priority, value))
+        heapq.heappop(q)
+
+
+
