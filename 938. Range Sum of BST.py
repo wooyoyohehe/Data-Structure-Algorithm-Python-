@@ -16,11 +16,13 @@ class Solution(object):
         def helper(node):
             if not node:
                 return 
-            if low<=node.val<=high:
-                ans[0] += node.val
-            if node.val > low:
+            if node.val > high:
                 helper(node.left)
-            if node.val < high:
+            elif node.val < low:
+                helper(node.right)
+            else:
+                ans[0] += node.val
+                helper(node.left)
                 helper(node.right)
         helper(root)
         return ans[0]
