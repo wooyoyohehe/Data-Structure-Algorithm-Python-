@@ -70,18 +70,20 @@
 13. convert a word to a list of chars
         list(s)
 
-14. PriorityQueue
-        from queue import PriorityQueue
-        q = PriorityQueue()
-        q.put([priority, "sth"])
-        q.get()
-        q.empty()
-        q.qsize()
+14. 
+        PriorityQueue
+                from queue import PriorityQueue
+                q = PriorityQueue()
+                q.put([priority, "sth"])
+                q.get()
+                q.empty()
+                q.qsize()
 
-15. heapq
-        q = []
-        heapq.heappush(q, (priority, value))
-        heapq.heappop(q)
+15. 
+        heapq
+                q = []
+                heapq.heappush(q, (priority, value))
+                heapq.heappop(q)
 
 16. 
         Situation：事情是在什么情况下发生
