@@ -5,30 +5,44 @@ import math
 # Add any helper functions you may need here
 
 
-def minOperations(arr):
+def balancedSplitExists(arr):
   # Write your code here
-  target = sorted(arr)
-  queue = [[0, arr]]
-  while queue:
-    level, cur = queue.pop(0)
-    if cur == target:
-      return level
-    else:
-      for i in range(len(cur)):
-        for j in range(i, len(cur)):
-          new_arr = cur[:i] + cur[i:j+1][::-1] + cur[j+1:]
-          queue.append([level+1, new_arr])
-  
-  
-  
-  
+  arr.sort()
+  left_sum = 0
+  right_sum = 0
+  left = -1
+  right = len(arr)
+  while left < right:
+    if left_sum <= right_sum:
+      left += 1
+      left_sum += arr[left]
+      if right-left == 1:
+          is_not_same = (arr[left] != arr[right])
+          break
+    elif left_sum > right_sum:
+      right -= 1
+      right_sum += arr[right]
+      if right-left == 1:
+          is_not_same = (arr[left] != arr[right])
+  if left_sum != right_sum:
+    return False
+  return is_not_same
+     
+
+
+
+
+
+
+
+
 
 
 # These are the tests we use to determine if the solution is correct.
 # You can add your own at the bottom.
 
-def printInteger(n):
-  print('[', n, ']', sep='', end='')
+def printString(string):
+  print('[\"', string, '\"]', sep='', end='')
 
 test_case_number = 1
 
@@ -43,24 +57,22 @@ def check(expected, output):
     print(rightTick, 'Test #', test_case_number, sep='')
   else:
     print(wrongTick, 'Test #', test_case_number, ': Expected ', sep='', end='')
-    printInteger(expected)
+    printString(expected)
     print(' Your output: ', end='')
-    printInteger(output)
+    printString(output)
     print()
   test_case_number += 1
 
 if __name__ == "__main__":
-  n_1 = 5
-  arr_1 = [1, 2, 5, 4, 3]
-  expected_1 = 1
-  output_1 = minOperations(arr_1)
+  arr_1 = [2, 1, 2, 5]
+  expected_1 = True
+  output_1 = balancedSplitExists(arr_1)
   check(expected_1, output_1)
 
-  n_2 = 3
-  arr_2 = [3, 1, 2]
-  expected_2 = 2
-  output_2 = minOperations(arr_2)
+  arr_2 = [3, 6, 3, 4, 4]
+  expected_2 = False
+  output_2 = balancedSplitExists(arr_2)
   check(expected_2, output_2)
-  
+
   # Add your own test cases here
   
