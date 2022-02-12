@@ -85,6 +85,11 @@
                 q = []
                 heapq.heappush(q, (priority, value))
                 heapq.heappop(q)
+                heapq.heapreplace(heap, val)：先进行pop，在进行push。
+                heapq.heappushpop(heap, val)：先进行push，再进行pop，返回pop后的值。
+                使用replace、pushpop要比，使用一遍push再使用pop要快。
+                heapq.nlargest(n, heap)：查找堆中最大的n个元素
+                heapq.nsmallest(n, heap)：查找堆中最小的n个元素
 
 16. 
         Situation：事情是在什么情况下发生
