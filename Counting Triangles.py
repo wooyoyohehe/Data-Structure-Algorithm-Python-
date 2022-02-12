@@ -7,10 +7,9 @@ import math
 
 def countDistinctTriangles(arr):
   # Write your code here
-  ans = []
+  ans = set()
   for tri in arr:
-    if sorted(tri) not in ans:
-      ans.append(sorted(tri))
+    ans.add(tuple(sorted(tri)))
   return len(ans)
 
 
