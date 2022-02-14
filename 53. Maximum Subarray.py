@@ -14,4 +14,19 @@ class Solution(object):
             else:
                 dp[i] = nums[i]
         return max(dp)
+        
+    def maxSubArray(self, nums):
+        """
+        :type nums: List[int]
+        :rtype: int
+        """
+        prefix = [0]*(len(nums)+1)
+        smallest = 0
+        largest = -float("inf")
+        for i in range(len(nums)):
+            prefix[i+1] = prefix[i] + nums[i]
+            largest = max(largest, prefix[i+1]-smallest)
+            smallest = min(smallest, prefix[i+1])
+        return largest
+
             
