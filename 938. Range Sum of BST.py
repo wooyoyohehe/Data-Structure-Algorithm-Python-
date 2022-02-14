@@ -12,17 +12,17 @@ class Solution(object):
         :type high: int
         :rtype: int
         """
-        ans = [0]
+        self.ans = 0
         def helper(node):
             if not node:
-                return 
+                return
             if node.val > high:
                 helper(node.left)
             elif node.val < low:
                 helper(node.right)
             else:
-                ans[0] += node.val
+                self.ans += node.val
                 helper(node.left)
                 helper(node.right)
         helper(root)
-        return ans[0]
+        return self.ans
