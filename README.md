@@ -91,6 +91,9 @@
                 heapq.nlargest(n, heap)：查找堆中最大的n个元素
                 heapq.nsmallest(n, heap)：查找堆中最小的n个元素
 
+                build heap: O(n)
+                heapsort: O(nlogn)
+
 16. 
         Situation：事情是在什么情况下发生
         Task：你是如何明确你的任务的
