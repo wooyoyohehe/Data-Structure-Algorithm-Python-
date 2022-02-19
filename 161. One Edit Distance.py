@@ -17,16 +17,11 @@ class Solution(object):
                 if len(s) == len(t):
                     if s[i+1:] == t[j+1:]:
                         return True
-                    else:
-                        return False
                 if len(s) > len(t):
                     if s[i+1:] == t[j:]:
                         return True
-                    else:
-                        return False
                 else:
                     if s[i:] == t[j+1:]:
                         return True
-                    else:
-                        return False
+                return False
         return True
