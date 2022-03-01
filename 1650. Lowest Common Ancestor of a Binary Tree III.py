@@ -14,19 +14,22 @@ class Solution(object):
         :type node: Node
         :rtype: Node
         """
-        parent1 = [p]
-        parent2 = [q]
-        while p.parent or q.parent:
-            if p.parent:
-                if p.parent in parent2:
-                    return p.parent
-                else:
-                    parent1.append(p.parent)
-                    p = p.parent
-            if q.parent:
-                if q.parent in parent1:
-                    return q.parent
-                else:
-                    parent2.append(q.parent)
-                    q=q.parent
-            
+        p_depth,q_depth,p1,q1 = 0, 0, p, q
+        while p1.parent:
+            p_depth +=1
+            p1 = p1.parent
+        while q1.parent:
+            q_depth +=1
+            q1 = q1.parent
+        if p_depth > q_depth:
+            while p_depth > q_depth:
+                p_depth -= 1
+                p = p.parent
+        else:
+            while p_depth < q_depth:
+                q_depth -= 1
+                q = q.parent
+        while p != q:
+            p = p.parent
+            q = q.parent
+        return p
