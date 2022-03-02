@@ -14,8 +14,7 @@ class Solution(object):
         def helper(node):
             if not node:
                 return 0
-            left = helper(node.left)
-            right = helper(node.right)
+            left,right = helper(node.left), helper(node.right)
             temp_sum = node.val+left+right
             if temp_sum not in dic:
                 dic[temp_sum] = 1
@@ -23,11 +22,7 @@ class Solution(object):
                 dic[temp_sum] += 1
             return temp_sum
         helper(root)
-        max_freq = 0
-        for key in dic:
-            if dic[key] > max_freq:
-                max_freq = dic[key]
-        ans = []
+        max_freq, ans = max(dic.values()), []
         for key in dic:
             if dic[key] == max_freq:
                 ans.append(key)
