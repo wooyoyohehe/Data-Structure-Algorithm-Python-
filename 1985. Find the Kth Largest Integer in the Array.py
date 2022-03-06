@@ -1,3 +1,5 @@
+# The time complexity of adding an element in a heap of size k is O(logk), 
+# and we do it N times that means \mathcal{O}(N \log k)O(Nlogk) time complexity for the algorithm
 class Solution(object):
     def kthLargestNumber(self, nums, k):
         """
