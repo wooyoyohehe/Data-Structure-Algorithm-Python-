@@ -1,19 +1,15 @@
 class Solution(object):
-    def flipAndInvertImage(self, image):
+    def repeatedSubstringPattern(self, s):
         """
-        :type image: List[List[int]]
-        :rtype: List[List[int]]
+        :type s: str
+        :rtype: bool
         """
-        n = len(image)
-        for i in range(n):
-            left = 0
-            right = n-1
-            while left <= right:
-                if image[i][left] == image[i][right]:
-                    image[i][left] = abs(image[i][left]-1)
-                    if left != right:
-                        image[i][right] = abs(image[i][right]-1)
-                left += 1
-                right -= 1
-        return image
-        
+        left = 0
+        right = 1
+        while right < len(s)//2+1:
+            if s[left] == s[right]:
+                if len(s) % (right-left) == 0:
+                    if len(s) // (right-left) * s[left:right] == s:
+                        return True
+            right += 1
+        return False
