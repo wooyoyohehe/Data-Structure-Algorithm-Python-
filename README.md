@@ -100,5 +100,8 @@
         Action：针对这样的情况分析，你采用了什么行动方式
         Result：结果怎样，在这样的情况下你学习到了什么
 
+17.
+        substring & subsequence are different, substring is consecutive, but subtring is not
+
 
 
