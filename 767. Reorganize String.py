@@ -5,12 +5,14 @@ class Solution(object):
         :rtype: str
         """
         dic = {}
+        max_occr = 0
         for letter in s:
             if letter not in dic:
                 dic[letter] = 1
             else:
                 dic[letter] += 1
-        if max(dic.values()) > (len(s)+1)//2:
+                max_occr = max(max_occr, dic[letter])
+        if max_occr > (len(s)+1)//2:
             return ""
         q = []
         for key in dic:
