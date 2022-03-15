@@ -103,5 +103,16 @@
 17.
         substring & subsequence are different, substring is consecutive, but subtring is not
 
+18.
+        Disjoint Set Union(DSU)
+
+        class DSU():
+                def __init__(self, n):
+                        self.parent = [i for i in range(n)]
+                def find(self, i):
+                        if self.parent[i] != i:
+                                self.parent[i] = self.find(self.parent[i])
+                def union(self, i, j):
+                        self.parent(self.find(i)) = self.find(j)
 
 
