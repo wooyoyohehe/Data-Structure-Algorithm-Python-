@@ -1,39 +1,26 @@
+class UnionFind():
+    def __init__(self, n):
+        self.parent = [i for i in range(n)]
+    def find(self, i):
+        if self.parent[i] != i:
+            self.parent[i] = self.find(self.parent[i])
+        return self.parent[i]
+    def union(self, i, j):
+        self.parent[self.find(i)] = self.find(j)
+    
 class Solution(object):
     def findCircleNum(self, isConnected):
         """
         :type isConnected: List[List[int]]
         :rtype: int
         """
-        n = len(isConnected)
-        adj = {}
-        cities = set()
-        for i in range(n):
-            for j in range(i+1, n):
-                if isConnected[i][j] == 1:
-                    if i+1 not in adj:
-                        adj[i+1] = []
-                    adj[i+1].append(j+1)
-                    if j+1 not in adj:
-                        adj[j+1] = []
-                    adj[j+1].append(i+1)
-                    cities.add(i+1)
-                    cities.add(j+1)
-        count = 0
-        num = n - len(cities)
-        while cities:
-            q = [cities.pop()]
-            visited = set()
-            while q:
-                cur = q.pop(0)
-                visited.add(cur)
-                for city in adj[cur]:
-                    if city not in visited:
-                        visited.add(city)
-                        q.append(city)
-            count += 1
-            cities -= visited
-        return count+num
-                    
-                
-        
-                
+        uf = UnionFind(200)
+        dic = {}
+        for i in range(len(isConnected)):
+            for j in range(i+1, len(isConnected)):
+                if isConnected[i][j]:
+                    uf.union(i,j)
+        ans = set()
+        for i in range(len(isConnected)):
+            ans.add(uf.find(i))
+        return len(ans)
