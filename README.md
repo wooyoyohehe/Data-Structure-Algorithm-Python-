@@ -115,4 +115,7 @@
                 def union(self, i, j):
                         self.parent(self.find(i)) = self.find(j)
 
+        Time complexity: it takes O(m×n) to initialize UnionFind
+        Space complexity: O(m×n) as required by UnionFind data structure
+
 
