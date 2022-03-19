@@ -5,17 +5,14 @@ class Solution(object):
         :type n: int
         :rtype: float
         """
-        def helper(x, n):
-            if n == 0:
-                return 1.0
-            half = helper(x, n//2)
-            if n%2 == 0:
-                ans = half*half
-            else:
-                ans = half*half*x
-            return ans
-        if n >= 0:
-            return helper(x,n)
-        else:
+        if n < 0:
+            x = 1.0/x
             n = -n
-            return 1/helper(x,n)
+        cur = x
+        ans = 1
+        while n > 0:
+            if n % 2 == 1:
+                ans = ans*cur
+            cur *= cur
+            n /= 2
+        return ans
