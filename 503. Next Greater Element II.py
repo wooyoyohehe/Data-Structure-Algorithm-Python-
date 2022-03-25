@@ -20,3 +20,4 @@ class Solution(object):
                 stack.append((nums[i], i))
         return ans
                 
+                

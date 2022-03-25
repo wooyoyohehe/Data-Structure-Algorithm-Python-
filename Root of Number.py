@@ -7,8 +7,7 @@ def root(x, n):
     if abs(mid ** n - x) < 0.001:
       return mid
     if mid ** n > x:
-      rigth = mid
+      right = mid
     else:
       left = mid
-  return x
-print(root(7,3))      
+  return x     
