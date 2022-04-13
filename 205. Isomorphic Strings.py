@@ -5,13 +5,17 @@ class Solution(object):
         :type t: str
         :rtype: bool
         """
+        if len(s) != len(t):
+            return False
         dic = {}
+        letter = set()
         for i in range(len(s)):
             if s[i] not in dic:
-                if t[i] in dic.values():
+                dic[s[i]] = t[i]
+                if t[i] in letter:
                     return False
-                else:
-                    dic[s[i]] = t[i]
-            elif dic[s[i]] != t[i]:
-                return False
+                letter.add(t[i])
+            else:
+                if dic[s[i]] != t[i]:
+                    return False
         return True
