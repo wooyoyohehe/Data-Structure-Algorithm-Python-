@@ -1,29 +1,32 @@
-# Definition for a binary tree node.
-# class TreeNode(object):
-#     def __init__(self, val=0, left=None, right=None):
-#         self.val = val
-#         self.left = left
-#         self.right = right
 class Solution(object):
-    def widthOfBinaryTree(self, root):
+    def wallsAndGates(self, rooms):
         """
-        :type root: TreeNode
-        :rtype: int
+        :type rooms: List[List[int]]
+        :rtype: None Do not return anything, modify rooms in-place instead.
         """
-        q = deque([[root, 1]])
-        ans = 1
+        inf = 2**31-1
+        visited = set()
+        m = len(rooms)
+        n = len(rooms[0])
+        q = deque()
+        directions = [(-1,0),(1,0),(0,1),(0,-1)]
+        for i in range(m):
+            for j in range(n):
+                if rooms[i][j] == 0:
+                    q.append([i,j])
+                    visited.add((i,j))
+        path = 0
         while q:
-            for _ in range(len(q)):
-                cur, num = q.popleft()
-                if cur.left:
-                    q.append([cur.left, num*2])
-                if cur.right:
-                    q.append([cur.right, num*2+1])
-            if len(q) >= 2:
-                ans = max(ans, q[-1][1] - q[0][1]+1)
-        return ans
-            
-            
-        
+            for i in range(len(q)):
+                x,y = q.popleft()
+                for dx, dy in directions:
+                    new_x = x+dx
+                    new_y = y+dy
+                    if 0<=new_x<m and 0<=new_y<n and rooms[new_x][new_y]==inf and (new_x, new_y) not in visited:
+                        visited.add((new_x, new_y))
+                        rooms[new_x][new_y] = path+1
+                        q.append([new_x, new_y])
+            path += 1
+                
             
         
