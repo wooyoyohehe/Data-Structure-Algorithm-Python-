@@ -4,23 +4,20 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[List[int]]
         """
-        if len(nums) == 1:
-            return [nums]
-        result = []
-        visited = [0]*len(nums)
-        
-        def helper(result, path):
+        nums.sort()
+        visited = [False]*len(nums)
+        ans = []
+        def backtrack(path):
             if len(path) == len(nums):
-                result.append(path)
+                ans.append(path)
                 return
-            nums.sort()
             for i in range(len(nums)):
-                if visited[i] == 1:
+                if visited[i]:
                     continue
-                if i!=0 and nums[i] == nums[i-1] and visited[i-1]==0:
+                if i!=0 and nums[i] == nums[i-1] and not visited[i-1]:
                     continue
-                visited[i] = 1
-                helper(result, path+[nums[i]])
-                visited[i] = 0
-        helper(result, [])
-        return result
+                visited[i] = True
+                backtrack(path+[nums[i]])
+                visited[i] = False
+        backtrack([])
+        return ans
